@@ -35,6 +35,7 @@ function create(req, res){
       res.json({success: true, message: "User created"})
     })
   } else {
+    console.log("wrong code")
     res.json({success: false, message: "Incorrect sign up code"})
   }
 }
