@@ -31,7 +31,7 @@ function create(req, res){
           res.send(err)
         }
       }
-      res.json({success: true, message: "User created, Wahey!"})
+      res.json({success: true, message: "User created"})
     })
   } else {
     res.json({success: false, message: "Incorrect sign up code"})
