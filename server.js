@@ -11,7 +11,7 @@ var
   port            = process.env.PORT || 3000,
   mongoUri        = process.env.MONGOLAB_URI || ('mongodb://localhost/project_four'),
   cors            = require('cors'),
-  apiRoutes       = require('./routes/api.js')
+  apiRouter       = require('./routes/api.js')
 
 //set mongo database
 mongoose.connect(mongoUri, function(err){
