@@ -3,9 +3,11 @@ var
   Schema = mongoose.Schema
 
 var eventSchema = new Schema({
-  model: String,
-  make: String,
-  year: Number
+  date: String,
+  category: String,
+  amount: Number,
+  paid: Boolean,
+  invoice: String
 })
 
 var Event = mongoose.model('Event', eventSchema)
