@@ -9,7 +9,8 @@ var express         = require('express'),
     methodOverride  = require('method-override'),
     port            = process.env.PORT || 3000,
     mongoUri        = process.env.MONGOLAB_URI || ('mongodb://localhost/project_four'),
-    cors            = require('cors')
+    cors            = require('cors'),
+    apiRoutes       = require('./routes/api.js')
 
 //set mongo database
 mongoose.connect(mongoUri, function(err){
@@ -24,3 +25,14 @@ app.use( bodyParser.json() )
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(logger('dev'))
 app.use(express.static(path.join(__dirname, 'public')))
+
+app.get('/', function(req,res){
+  console.log('getting index?')
+  res.render('index')
+})
+
+app.use('/api', apiRoutes)
+
+app.listen(3000, function(){
+  console.log('Server Listening on port 3000...')
+})
