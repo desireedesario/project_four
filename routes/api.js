@@ -1,7 +1,7 @@
 var 
-  express        = require('express'),
-  apiRouter      = express.Router(),
-  mongoose       = require('mongoose')
+  express          = require('express'),
+  apiRouter        = express.Router(),
+  mongoose         = require('mongoose'),
   eventsController = require('../controllers/eventsController.js');
   
 
@@ -10,12 +10,12 @@ apiRouter.get('/', function(req,res){
 })
 
 apiRouter.route('/events')
-  //.get(carsController.getAllCars)
-  //.post(carsController.createCar)
+  .get(eventsController.getAllEvents)
+  .post(eventsController.createEvent)
 
 apiRouter.route('/events/:id')
-  //.get(carsController.getOneCar)
-  //.patch(carsController.updateCar)
-  //.delete(carsController.deleteCar)
+  .get(eventsController.getOneEvent)
+  .patch(eventsController.updateEvent)
+  .delete(eventsController.deleteEvent)
 
 module.exports = apiRouter
