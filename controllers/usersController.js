@@ -74,56 +74,56 @@ function destroy(req, res){
 
 
 //code for apiRouter.route('/authenticate')
-// function authenticateUser(req, res) {
-//   console.log('trying to generate a JWT')
-//   // 1 - find the user in our db
-//   User.findOne({
-//     username: req.body.username
-//   }).select('name username password').exec(function(err, user){
-//     if(err) throw err
-//     if(!user){
-//       res.json({success: false, message: "No such user"})
-//     } else if(user){
-//       // check passwords
-//       var validPassword = user.comparePassword(req.body.password)
-//       if(!validPassword){
-//         res.json({success: false, message: "Invalid password"})
-//       } else {
-//         // password is good!
-//         var token = jwt.sign({
-//           name: user.name,
-//           username: user.username
-//         }, mySpecialSecret, {
-//           expiresInMinutes: 1440
-//         })
-//         // now let's actually give it to them!
-//         console.log("logged in")
-//         res.json({ success: true, message: "enjoy your token!", token: token})
-//       }
-//     }
-//   })
-// }
+function authenticateUser(req, res) {
+  console.log('trying to generate a JWT')
+  // 1 - find the user in our db
+  User.findOne({
+    username: req.body.username
+  }).select('name username password').exec(function(err, user){
+    if(err) throw err
+    if(!user){
+      res.json({success: false, message: "No such user"})
+    } else if(user){
+      // check passwords
+      var validPassword = user.comparePassword(req.body.password)
+      if(!validPassword){
+        res.json({success: false, message: "Invalid password"})
+      } else {
+        // password is good!
+        var token = jwt.sign({
+          name: user.name,
+          username: user.username
+        }, mySpecialSecret, {
+          expiresInMinutes: 1440
+        })
+        // now let's actually give it to them!
+        console.log("logged in")
+        res.json({ success: true, message: "enjoy your token!", token: token})
+      }
+    }
+  })
+}
 
-// function checkUser(req, res, next){
-//   // let's check everywhere for the JWT!
-//   var token = req.body.token || req.param('token') || req.headers['x-access-token']
-//   // if we find the token, let's use mySpecialSecret to try and decode it.
-//   if(token){
-//     jwt.verify(token, mySpecialSecret, function(err, decoded){
-//       if(err){
-//         res.status(403).send({success: false, message: "forbidden, token can't be decoded"})
-//       } else {
-//         req.decoded = decoded
-//         next()
-//       }
-//     })
-//   } else {
-//     res.status(403).send({success: false, message: "no token. You're not even trying"})
-//   }
-//   // this is going to run EVERY time our API is hit
-//   // we want to check if the user is logged in here
-//   console.log("checking if user is logged in")
-// }
+function checkUser(req, res, next){
+  // let's check everywhere for the JWT!
+  var token = req.body.token || req.param('token') || req.headers['x-access-token']
+  // if we find the token, let's use mySpecialSecret to try and decode it.
+  if(token){
+    jwt.verify(token, mySpecialSecret, function(err, decoded){
+      if(err){
+        res.status(403).send({success: false, message: "forbidden, token can't be decoded"})
+      } else {
+        req.decoded = decoded
+        next()
+      }
+    })
+  } else {
+    res.status(403).send({success: false, message: "no token. You're not even trying"})
+  }
+  // this is going to run EVERY time our API is hit
+  // we want to check if the user is logged in here
+  console.log("checking if user is logged in")
+}
 
 module.exports = {
   index: index,
