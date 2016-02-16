@@ -34,12 +34,13 @@ function UsersController($state, authFactory, $rootScope, $window) {
   function getUser(){
     authFactory.getUser()
     .then(function(response){
+      console.log('response')
       vm.user = response.data
     })
   }
 
   function signup(){
-    authFactory.signup(vm.user.username, vm.user.password)
+    authFactory.signup(vm.user.username, vm.user.password, vm.user.mark)
     .then(function(response){
       if(response.data.success){
         vm.login()
