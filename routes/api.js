@@ -1,7 +1,8 @@
-var express        = require('express'),
-    apiRouter      = express.Router(),
-    mongoose       = require('mongoose')
-    //carsController = require('../controllers/carsController.js');
+var 
+  express        = require('express'),
+  apiRouter      = express.Router(),
+  mongoose       = require('mongoose')
+  eventsController = require('../controllers/eventsController.js');
   
 
 apiRouter.get('/', function(req,res){
