@@ -32,6 +32,8 @@ function authInterceptorFactory($q, $location, authTokenFactory){
     var token = authTokenFactory.getToken()
     if(token){
       config.headers['x-access-token'] = token;
+    } else {
+      $location.path('/login')
     }
     return config
   }
@@ -65,10 +67,11 @@ function authFactory($http, $q, authTokenFactory, $window){
       return response
     })
   }
-  authFactory.signup = function(username, password){
+  authFactory.signup = function(username, password, mark){
     return $http.post('http://localhost:3000/api/users', {
       username: username,
-      password: password
+      password: password,
+      mark: mark
     })
   }
   // handle logout
