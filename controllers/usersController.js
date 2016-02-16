@@ -19,10 +19,11 @@ function create(req, res){
   var user = new User()
 
   user.name = req.body.name
+  user.mark = req.body.mark
   user.username = req.body.username
   user.password = req.body.password
 
-  if (req.body.mark == 515){
+  if (user.mark == "515"){
     user.save(function(err){
       if(err){
         if(err.code == 11000){
