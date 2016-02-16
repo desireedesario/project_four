@@ -6,6 +6,7 @@ var
 // make a UserSchema
 var UserSchema = new Schema({
   name: String,
+  mark: Number,
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true, select: false }
 })

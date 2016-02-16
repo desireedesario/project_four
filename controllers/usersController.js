@@ -100,6 +100,7 @@ function authenticateUser(req, res) {
         })
         // now let's actually give it to them!
         console.log("logged in")
+        console.log(user)
         res.json({ success: true, message: "enjoy your token!", token: token})
       }
     }
