@@ -22,17 +22,20 @@ function create(req, res){
   user.username = req.body.username
   user.password = req.body.password
 
-  
-  user.save(function(err){
-    if(err){
-      if(err.code == 11000){
-        return res.json({success: false, message: "username already exists" })
-      } else {
-        res.send(err)
+  if (req.body.mark == 515){
+    user.save(function(err){
+      if(err){
+        if(err.code == 11000){
+          return res.json({success: false, message: "username already exists" })
+        } else {
+          res.send(err)
+        }
       }
-    }
-    res.json({success: true, message: "User created, Wahey!"})
-  })
+      res.json({success: true, message: "User created, Wahey!"})
+    })
+  } else {
+    res.json({success: false, message: "Incorrect sign up code"})
+  }
 }
 
 function show(req, res){
