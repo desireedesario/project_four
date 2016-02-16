@@ -131,6 +131,6 @@ module.exports = {
   show: show,
   update: update,
   destroy: destroy,
-  // authenticate: authenticateUser,
-  // checkUser: checkUser
+  authenticate: authenticateUser,
+  checkUser: checkUser
 }
