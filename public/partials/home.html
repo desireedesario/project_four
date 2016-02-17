@@ -1,6 +1,11 @@
-  
+<div ng-show="!usersCtrl.loggedIn">  
   <div class="jumbotron">
-    <h1>dojo home jumbotron</h1>
-    <h1>Test USER{{userCtrl.user}}</h1>  
+    <h1>you must be logged in to see this site</h1> 
   </div>
+</div>
 
+<div ng-show="usersCtrl.loggedIn">  
+  <div class="jumbotron">
+    <h1>you are logged in</h1> 
+  </div>
+</div>

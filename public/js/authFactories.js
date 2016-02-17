@@ -32,8 +32,6 @@ function authInterceptorFactory($q, $location, authTokenFactory){
     var token = authTokenFactory.getToken()
     if(token){
       config.headers['x-access-token'] = token;
-    } else {
-      $location.path('/login')
     }
     return config
   }
