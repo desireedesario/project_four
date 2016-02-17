@@ -2,7 +2,8 @@
   <nav class="navbar navbar-default">
   <div class="container-fluid">
   <div class="navbar-header">
-    <a class="navbar-brand" ui-sref="home">dojoBooks</a>
+    <a ng-if="usersCtrl.loggedIn" class="navbar-brand" ui-sref="home">dojoBooks</a>
+    <a ng-if="!usersCtrl.loggedIn" class="navbar-brand">dojoBooks</a>
   </div>
     <ul class="nav navbar-nav navbar-right">
       <li ng-if="usersCtrl.loggedIn"><a>Hi {{usersCtrl.user.username}}</a></li>
