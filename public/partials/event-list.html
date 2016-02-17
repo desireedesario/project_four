@@ -1,7 +1,5 @@
 <h1> You have {{ eventsCtrl.events.length || 0 }} events</h1>
 
-<event-form></event-form>
-
 <h2 ng-show="eventsCtrl.events.length">All Events:</h2>
 
 <div class="list-group">
@@ -10,3 +8,5 @@
       <p class="list-group-item-text">{{ event.amount }} {{event.paid}} {{event.invoice}}</p>
     </a>
 </div>
+
+<event-form></event-form>
