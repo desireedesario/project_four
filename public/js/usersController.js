@@ -12,6 +12,11 @@ function UsersController($state, authFactory, $rootScope, $window) {
   vm.logout = logout
   vm.getUser = getUser
   vm.error = null
+  vm.authFactory = authFactory
+  vm.authFactory.index()
+  .then(function(response) {
+    vm.user = response.data
+  })
 
   $rootScope.$on('$stateChangeStart', function() {
     console.log('state changed')
@@ -29,7 +34,7 @@ function UsersController($state, authFactory, $rootScope, $window) {
   function getUser(){
     authFactory.getUser()
     .then(function(response){
-      console.log('response')
+      console.log(response)
       vm.user = response.data
     })
   }

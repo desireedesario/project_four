@@ -1,11 +1,13 @@
-<div ng-show="!usersCtrl.loggedIn">  
+<div ng-if="!usersCtrl.user">  
   <div class="jumbotron">
     <h1>you must be logged in to see this site</h1> 
   </div>
 </div>
 
-<div ng-show="usersCtrl.loggedIn">  
+<div ng-if="usersCtrl.user">  
   <div class="jumbotron">
-    <h1>you are logged in</h1> 
+    <h1>you are logged in</h1>
+
+    <event-form></event-form>
   </div>
 </div>
