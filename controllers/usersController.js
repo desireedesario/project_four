@@ -23,7 +23,7 @@ function create(req, res){
   user.username = req.body.username
   user.password = req.body.password
 
-  if (user.mark == "515"){
+  if (user.mark == "111"){
     user.save(function(err){
       if(err){
         if(err.code == 11000){
