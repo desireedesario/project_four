@@ -1,11 +1,14 @@
-<h1> You have {{ eventsCtrl.events.length || 0 }} events</h1>
-
-<h2 ng-show="eventsCtrl.events.length">All Events:</h2>
+<h2 ng-show="eventsCtrl.events.length">All Entries:</h2>
 
 <div class="list-group">
   <a ng-repeat="event in eventsCtrl.events track by $index" href="#/events/{{ event._id }}" class="list-group-item">
-      <h3 class="list-group-item-heading">{{ event.date }} {{ event.category }}</h3>
-      <p class="list-group-item-text">{{ event.amount }} {{event.paid}} {{event.invoice}}</p>
+      <h3 class="list-group-item-heading">{{ event.date | date:"MM/dd/yyyy" }} {{ event.category }}</h3>
+      <p class="list-group-item-text">{{ event.amount | currency}} 
+        <span ng-if="!event.paid">
+          NEEDS TO BE PAID
+        </span>
+        {{event.invoice}}
+      </p>
     </a>
 </div>
 

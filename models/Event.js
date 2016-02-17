@@ -3,7 +3,7 @@ var
   Schema = mongoose.Schema
 
 var eventSchema = new Schema({
-  date: String,
+  date: Date,
   category: String,
   amount: Number,
   paid: Boolean,
