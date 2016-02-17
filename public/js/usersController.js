@@ -31,6 +31,8 @@ function UsersController($state, authFactory, $rootScope, $window) {
     $window.location.reload();
   }
 
+  getUser()
+  
   function getUser(){
     authFactory.getUser()
     .then(function(response){
