@@ -9,6 +9,7 @@ function EventsController (eventsFactory){
   vm.api = eventsFactory
   vm.events = []
   vm.newEvent = {}
+  vm.myDate = new Date()
   vm.api.list()
     .success(function(res){
       vm.events = res
