@@ -13,11 +13,12 @@
           <input type="number" name="amount" ng-model="eventsCtrl.newEvent.amount" placeholder="Amount" class="form-control">
         </div>
         <div class="form-group">
-          <input type="checkbox" name="paid" ng-model="eventsCtrl.newEvent.paid" placeholder="Paid?" class="form-control"><span>Paid?</span>
+          <input type="text" name="paid" ng-model="eventsCtrl.newEvent.paid" placeholder="Paid?" class="form-control">
         </div>
-        <div class="form-group">
-          <input type="text" name="invoice" ng-model="eventsCtrl.newEvent.invoice" placeholder="Invoice" class="form-control">
-        </div>
+        <input type="file" id="file_input" ng-model="eventsCtrl.newEvent.invoice" ng-click="eventsCtrl.sthree()"/>
+          <p id="status">Upload Receipt/Invoice Image</p>
+          <img class="img-responsive"  id="preview" src="" />
+        <input type="hidden" id="invoice" name="invoice" ng-model="eventsCtrl.newEvent.invoice" />
         <div class="text-center">
         <button type="submit" class="btn btn-info btn-block">Add Event</button>
         </div>

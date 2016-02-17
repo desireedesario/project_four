@@ -52,7 +52,7 @@ angular.module('dojoBooks')
 authFactory.$inject = ['$http', '$q', 'authTokenFactory', '$window']
 function authFactory($http, $q, authTokenFactory, $window){
   var authFactory = {}
-  var url = 'https://dojo-books.herokuapp.com'
+  var url = 'http://localhost:3000'
   authFactory.index = function(){
     return $http.get(url + '/api/users')
   }

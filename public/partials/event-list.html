@@ -1,3 +1,5 @@
+<h1> You have {{ eventsCtrl.events.length || 0 }} entries</h1>
+
 <h2 ng-show="eventsCtrl.events.length">All Entries:</h2>
 
 <div class="list-group">
@@ -7,11 +9,11 @@
         <span ng-if="!event.paid">
           NEEDS TO BE PAID
         </span>
-        {{event.invoice}}
+        <span ng-if="event.invoice">
+          <img src="{{event.invoice}}">
+        </span> 
       </p>
     </a>
 </div>
-
-<h1>{{eventsCtrl.myDate | date:"MMM"}}</h1>
 
 <event-form></event-form>

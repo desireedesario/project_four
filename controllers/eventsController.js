@@ -7,7 +7,6 @@ function getAllEvents(req,res){
 }
 
 function createEvent(req,res){
-  console.log('create event hit')
   var newEvent = new Event
   newEvent.date = req.body.date
   newEvent.category = req.body.category

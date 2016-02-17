@@ -5,7 +5,7 @@ angular
 eventsFactory.$inject = ['$http']
 
 function eventsFactory($http){
-  var eventsUrl = 'https://dojo-books.herokuapp.com/api/events'
+  var eventsUrl = 'http://localhost:3000/api/events'
   var events = {}
 
   events.list = function(){
@@ -17,7 +17,6 @@ function eventsFactory($http){
   }
 
   events.addEvent = function(data){
-    console.log("event factory add")
     return $http.post(eventsUrl, data)
   }
 
@@ -31,6 +30,3 @@ function eventsFactory($http){
   
   return events
 }
-
-// ================================================
-
