@@ -30,4 +30,14 @@ function MainRouter($stateProvider, $urlRouterProvider) {
       templateUrl: 'partials/home.html',
       controller: 'UsersController as usersCtrl'
     })
+    .state('events', {
+      url: '/events',
+      templateUrl: 'partials/event-list.html',
+      controller: 'EventsController as eventsCtrl'
+    })
+    .state('detail', {
+      url: '/events/:eventId',
+      templateUrl: 'partials/event-detail.html',
+      controller: 'EventDetailsController as eventDetailsCtrl'
+    })
 }
