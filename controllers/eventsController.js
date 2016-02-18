@@ -11,7 +11,7 @@ function createEvent(req,res){
   var newEvent = new Event
   newEvent.date = req.body.date
   newEvent.category = req.body.category
-  newEvent.amount = req.body.amount
+  newEvent.amount = req.body.amount || 0
   newEvent.paid = req.body.paid
   newEvent.invoice = req.body.invoice
   
