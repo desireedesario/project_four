@@ -1,15 +1,22 @@
-<div ng-if="!usersCtrl.user">  
-  <div class="jumbotron">
-    <h1>you must be logged in to see this site</h1> 
+<div class="col-md-4"> 
+  <div>
+    <event-form></event-form>
   </div>
 </div>
-
-<div ng-if="usersCtrl.user"> 
-  <div class="col-md-4"> 
-    <div>
-      <event-form></event-form>
-    </div>
+<div class="col-md-4">
+<div ng-repeat="event in eventsCtrl.events">
+  <div ng-if="event.date.getMonth() == eventsCtrl.myDate.getMonth()" class="list-group-item">
+    <h3 class="list-group-item-heading">{{ event.date | date:"MM/dd/yyyy" }} {{ event.category }}</h3>
+    <p class="list-group-item-text">{{ event.amount | currency}} 
+      <span ng-if="!event.paid">
+        NEEDS TO BE PAID
+      </span>
+      <span ng-if="event.invoice">
+        <img src="{{event.invoice}}">
+      </span> 
+    </p>
   </div>
-
-  
 </div>
+</div>
+
+
