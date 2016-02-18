@@ -5,22 +5,26 @@ angular
 EventsController.$inject = ['eventsFactory', '$window']
 
 function EventsController (eventsFactory, $window){
-  var vm = this;
+  var vm = this
   vm.api = eventsFactory
+  vm.myDate = new Date()
   vm.events = []
   vm.newEvent = {}
   vm.api.list()
     .success(function(res){
+      for(var i = 0; i < res.length; i++){
+        res[i].date = new Date(res[i].date)
+      }
       vm.events = res
     })
   vm.addEvent = function(date, category, amount, paid, invoice){
-    console.log('events controller hut')
     var data = {date:date, category:category, amount:amount, paid:paid, invoice:invoice}
     vm.api.addEvent(data)
       .then(function success(res){
+        res.data.event.date = new Date(res.data.event.date)
         vm.events.push(res.data.event)
         vm.newEvent = {}
-        $window.location.reload();
+        // $window.location.reload();
       })
   }
 
@@ -111,8 +115,9 @@ function EventDetailsController(eventsFactory,$stateParams,$location){
   vm.editing = false
   vm.showEvent = function(eventId){
     vm.api.show(eventId).success(function(response){
+      response.date = new Date(response.date)
       vm.event = response
-      console.log(response)
+      console.log(response.date.getMonth())
     })
   }
   vm.showEvent($stateParams.eventId)
@@ -120,6 +125,7 @@ function EventDetailsController(eventsFactory,$stateParams,$location){
   vm.updateEvent = function(eventId, date, category, amount, paid, invoice){
     var data = {date:date, category:category, amount:amount, paid:paid, invoice:invoice}
     vm.api.updateEvent(eventId,data).success(function(response){
+      response.date = new Date(response.date)
       console.log(response)
       vm.event = response
       vm.editing = false
