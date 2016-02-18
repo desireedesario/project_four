@@ -1,3 +1,4 @@
+/*navbar*/
 .navbar-default {
 }
 
@@ -17,6 +18,7 @@
   margin: 10px 20px 0 20px;
 }
 
+/* Login and Signup */
 .topImage {
   background: url("http://dojofitness.dojo.netdna-cdn.com/images/section-one-background.jpg");
   height: 500px;
@@ -27,14 +29,26 @@
   padding-top: 40px;
 }
 
+.userform {
+  background-color: transparent;
+  color: #00D39E;
+}
+
 label {
   font-size: 16px;
 }
 
+.btn-primary{
+  background: linear-gradient(to right, #14cfd9 0%,#4cd57c 100%);
+  border-color: #4cd57c;
+}
+
+/* Home page */
 .homepage {
   margin-top: 20px;
 }
 
+/* Index HTML */
 .uiview {
   width: 100%;
   padding-left: 0px;
@@ -42,19 +56,9 @@ label {
   background-color: black;
 }
 
-.userform {
-  background-color: transparent;
-  color: #2cd7ae;
-}
-
 body {
   background-color: #f1f1f1;
   margin-top: 70px;
-}
-
-.btn-primary{
-  background: linear-gradient(to right, #14cfd9 0%,#4cd57c 100%);
-  border-color: #4cd57c;
 }
 
 header {
