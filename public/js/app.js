@@ -1,4 +1,4 @@
-angular.module('dojoBooks', ['ui.router'])
+angular.module('dojoBooks', ['ui.router', 'ng.group'])
   .directive('navBar', navBar)
   .directive('eventForm', eventForm)
 
