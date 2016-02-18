@@ -1,38 +1,40 @@
-<div class="panel panel-default" ng-hide="eventDetailsCtrl.editing">
-  <div class="panel-heading">
-    <h3 class="panel-title">Single Event:</h3>
+<div class="container"> 
+  <div class="panel panel-default" ng-hide="eventDetailsCtrl.editing">
+    <div class="panel-heading">
+      <h3 class="panel-title">Single Event:</h3>
+    </div>
+    <div class="panel-body">
+      <h1>{{ eventDetailsCtrl.event.date | date:"MM/dd/yyyy" }} {{ eventDetailsCtrl.event.category }}</h1>
+      <h3><strong>Amount</strong>: {{ eventDetailsCtrl.event.amount | currency}}</h3>
+      <h3><strong>ID</strong>: {{ eventDetailsCtrl.event._id }}</h3>
+    </div>
+    <div class="text-center">
+    <button class="btn btn-info btn-block" ng-click="eventDetailsCtrl.editing=!eventDetailsCtrl.editing">Edit Event</button>
+    <!-- DELETE BUTTON -->
+    <button class="btn btn-danger btn-block" ng-click="eventDetailsCtrl.removeEvent(eventDetailsCtrl.event._id)">Delete Event</button>
+    <!--  -->
+    </div>
   </div>
-  <div class="panel-body">
-    <h1>{{ eventDetailsCtrl.event.date | date:"MM/dd/yyyy" }} {{ eventDetailsCtrl.event.category }}</h1>
-    <h3><strong>Amount</strong>: {{ eventDetailsCtrl.event.amount | currency}}</h3>
-    <h3><strong>ID</strong>: {{ eventDetailsCtrl.event._id }}</h3>
-  </div>
-  <div class="text-center">
-  <button class="btn btn-info btn-block" ng-click="eventDetailsCtrl.editing=!eventDetailsCtrl.editing">Edit Event</button>
-  <!-- DELETE BUTTON -->
-  <button class="btn btn-danger btn-block" ng-click="eventDetailsCtrl.removeEvent(eventDetailsCtrl.event._id)">Delete Event</button>
-  <!--  -->
-  </div>
-</div>
 
-<div class="panel panel-default" ng-show="eventDetailsCtrl.editing">
-<h3><strong>ID</strong>: {{ eventDetailsCtrl.event._id }}</h3>
-  <div class="panel-heading"><h3 class="panel-title">Edit Event</h3></div>
-  <div class="panel-body">
-    <form class="" ng-submit="eventDetailsCtrl.updateEvent(eventDetailsCtrl.event._id, eventDetailsCtrl.event.date, eventDetailsCtrl.event.category, eventDetailsCtrl.event.amount)">
-      <div class="form-group">    
-          <input type="date" name="date" ng-model="eventDetailsCtrl.event.date" class="form-control">
+  <div class="panel panel-default" ng-show="eventDetailsCtrl.editing">
+  <h3><strong>ID</strong>: {{ eventDetailsCtrl.event._id }}</h3>
+    <div class="panel-heading"><h3 class="panel-title">Edit Event</h3></div>
+    <div class="panel-body">
+      <form class="" ng-submit="eventDetailsCtrl.updateEvent(eventDetailsCtrl.event._id, eventDetailsCtrl.event.date, eventDetailsCtrl.event.category, eventDetailsCtrl.event.amount)">
+        <div class="form-group">    
+            <input type="date" name="date" ng-model="eventDetailsCtrl.event.date" class="form-control">
+          </div>
+        <div class="form-group">
+          <input type="text" name="category" ng-model="eventDetailsCtrl.event.category" placeholder="Category" class="form-control">
         </div>
-      <div class="form-group">
-        <input type="text" name="category" ng-model="eventDetailsCtrl.event.category" placeholder="Category" class="form-control">
-      </div>
-      <div class="form-group">
-        <input type="number" name="amount" ng-model="eventDetailsCtrl.event.amount" placeholder="Amount" class="form-control">
-      </div>
-      <div class="text-center">
-        <button type="submit" class="btn btn-info btn-block">Update Event</button>
-      </div>
-      
-    </form>
+        <div class="form-group">
+          <input type="number" name="amount" ng-model="eventDetailsCtrl.event.amount" placeholder="Amount" class="form-control">
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-info btn-block">Update Event</button>
+        </div>
+        
+      </form>
+    </div>
   </div>
 </div>

@@ -1,22 +1,25 @@
-<div class="col-md-4"> 
-  <div>
-    <event-form></event-form>
+<div class="container">
+  <div class="col-md-4 homepage"> 
+    <div>
+      <event-form></event-form>
+    </div>
+  </div>
+  <div class="col-md-8 homepage">
+    <div class="list-group-item">
+      {{eventsCtrl.monthlyTotal(eventsCtrl.events)}}
+    </div>
+    <div ng-repeat="event in eventsCtrl.events">
+      <div ng-if="event.date.getMonth() == eventsCtrl.myDate.getMonth()" class="list-group-item">
+        <h3 class="list-group-item-heading">{{ event.date | date:"MM/dd/yyyy" }} {{ event.category }}</h3>
+        <p class="list-group-item-text">{{ event.amount | currency}} 
+          <span ng-if="!event.paid">
+            NEEDS TO BE PAID
+          </span>
+          <span ng-if="event.invoice">
+            <img src="{{event.invoice}}">
+          </span> 
+        </p>
+      </div>
+    </div>
   </div>
 </div>
-<div class="col-md-4">
-<div ng-repeat="event in eventsCtrl.events">
-  <div ng-if="event.date.getMonth() == eventsCtrl.myDate.getMonth()" class="list-group-item">
-    <h3 class="list-group-item-heading">{{ event.date | date:"MM/dd/yyyy" }} {{ event.category }}</h3>
-    <p class="list-group-item-text">{{ event.amount | currency}} 
-      <span ng-if="!event.paid">
-        NEEDS TO BE PAID
-      </span>
-      <span ng-if="event.invoice">
-        <img src="{{event.invoice}}">
-      </span> 
-    </p>
-  </div>
-</div>
-</div>
-
-

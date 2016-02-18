@@ -1,18 +1,18 @@
 <div ng-controller="UsersController as usersCtrl">
   <nav class="navbar navbar-default">
-  <div class="container-fluid">
-  <div class="navbar-header">
-    <a ng-if="usersCtrl.loggedIn" class="navbar-brand" ui-sref="home">dojoBooks</a>
-    <a ng-if="!usersCtrl.loggedIn" class="navbar-brand">dojoBooks</a>
-  </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li ng-if="usersCtrl.loggedIn"><a>Hi {{usersCtrl.user.username}}</a></li>
-      <li ng-if="usersCtrl.loggedIn"><a ui-sref="home">Home</a></li>
-      <li ng-if="usersCtrl.loggedIn"><a ui-sref="events">Events</a></li>
-      <li ng-if="!usersCtrl.loggedIn"><a ui-sref="login">Login</a></li>
-      <li ng-if="!usersCtrl.loggedIn"><a ui-sref="signup">Sign up</a></li>
-      <li ng-if="usersCtrl.loggedIn"><a ng-click="usersCtrl.logout()">Log out</a></li>  
-    </ul>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a ng-if="usersCtrl.loggedIn" class="navbar-brand" ui-sref="home"><img class="logo" src="/images/logo.png" width="131px"></a>
+        <a ng-if="!usersCtrl.loggedIn" class="navbar-brand"><img class="logo" src="/images/logo.png" width="131px"></a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-if="usersCtrl.loggedIn"><a>Hi {{usersCtrl.user.username}}</a></li>
+        <li ng-if="usersCtrl.loggedIn"><a ui-sref="home">Home</a></li>
+        <li ng-if="usersCtrl.loggedIn"><a ui-sref="events">Events</a></li>
+        <li ng-if="!usersCtrl.loggedIn"><a ui-sref="login">Login</a></li>
+        <li ng-if="!usersCtrl.loggedIn"><a ui-sref="signup">Sign up</a></li>
+        <li ng-if="usersCtrl.loggedIn"><a ng-click="usersCtrl.logout()">Log out</a></li>  
+      </ul>
     </div>
   </nav>
 </div>
