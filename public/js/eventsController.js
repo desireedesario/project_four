@@ -24,8 +24,17 @@ function EventsController (eventsFactory, $window){
         res.data.event.date = new Date(res.data.event.date)
         vm.events.push(res.data.event)
         vm.newEvent = {}
-        // $window.location.reload();
       })
+  }
+
+  vm.monthlyTotal = function(arr){
+    var total = 0
+    for(var j = 0; j < arr.length; j++){
+      if (arr[j].date.getMonth() == vm.myDate.getMonth()){
+        total += arr[j].amount
+      }
+    }
+    return total
   }
 
   vm.sthree = function(){
