@@ -1,0 +1,62 @@
+.navbar-default {
+}
+
+.navbar {
+  min-height: 70px;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  background-color: #fff;
+  margin-top: -70px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  font-family: "Helv-Light";
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 10px 20px 0 20px;
+}
+
+.topImage {
+  background: url("http://dojofitness.dojo.netdna-cdn.com/images/section-one-background.jpg");
+  height: 500px;
+  background-size: auto 500px;
+  background-position: center;
+  position: relative;
+  z-index: 10;
+  padding-top: 40px;
+}
+
+label {
+  font-size: 16px;
+}
+
+.homepage {
+  margin-top: 20px;
+}
+
+.uiview {
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: black;
+}
+
+.userform {
+  background-color: transparent;
+  color: #2cd7ae;
+}
+
+body {
+  background-color: #f1f1f1;
+  margin-top: 70px;
+}
+
+.btn-primary{
+  background: linear-gradient(to right, #14cfd9 0%,#4cd57c 100%);
+  border-color: #4cd57c;
+}
+
+header {
+
+}
