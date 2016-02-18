@@ -27,7 +27,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     })
     .state('loggedOut', {
       url: '/loggedOut',
-      templateUrl: 'partials/home.html',
+      templateUrl: 'partials/login.html',
       controller: 'UsersController as usersCtrl'
     })
     .state('events', {
