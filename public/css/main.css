@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Helvetica';
-  src: url('fonts/Helvetica.dfont');
+  src: url('/fonts/Helvetica.dfont');
 }
 
 /*navbar*/
@@ -97,10 +97,28 @@ canvas {
   background-color: #00D39E;
 }
 
+.homePay {
+  float: right;
+  background-color: #00D39E;
+}
+
 .homeTrash:hover {
   float: right;
   /*border-color: black;*/
   background-color: red;
+}
+
+.homeListDate {
+  display: inline-block;
+}
+
+.doughnut-legend, .polararea-legend {
+  font-size: 20px;
+}
+
+.btn-toggle {
+  margin-top: 5px;
+  margin-left: -5px;
 }
 
 /* Index HTML */
@@ -137,4 +155,18 @@ header {
 .btn-danger {
   background-color:black;
   border-color: black;
+}
+
+.img-show {
+  max-width: 300px;
+  max-height: 300px;
+  margin-bottom: 40px;
+}
+
+.showedit {
+  margin-bottom: 5px;
+}
+
+.panel-show {
+  height: 100%;
 }
