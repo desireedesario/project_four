@@ -6,7 +6,7 @@
   <div class="list-group">
     <a ng-repeat="event in eventsCtrl.events track by $index" href="#/events/{{ event._id }}" class="list-group-item">
         <h3 class="list-group-item-heading">{{ event.date | date:"MM/dd/yyyy" }} {{ event.category }}</h3>
-        <p class="list-group-item-text">{{ event.amount | currency}} 
+        <p class="list-group-item-text">{{ event.amount | currency}} {{event.id}}
           <span ng-if="!event.paid">
             NEEDS TO BE PAID
           </span>

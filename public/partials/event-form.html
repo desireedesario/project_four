@@ -4,10 +4,17 @@
   <div class="panel-body">
     <form id="new-event-form" ng-submit="eventsCtrl.addEvent(eventsCtrl.newEvent.date,eventsCtrl.newEvent.category,eventsCtrl.newEvent.amount,eventsCtrl.newEvent.paid,eventsCtrl.newEvent.invoice)">
       <div class="form-group">    
-          <input type="date" name="date" ng-model="eventsCtrl.newEvent.date" placeholder="Date" class="form-control">
-        </div>
+        <input type="date" name="date" ng-model="eventsCtrl.newEvent.date" placeholder="Date" class="form-control">
+      </div>
       <div class="form-group">
-        <input type="text" name="category" ng-model="eventsCtrl.newEvent.category" placeholder="Category" class="form-control">
+        <select type="text" name="category" ng-model="eventsCtrl.newEvent.category" class="form-control">
+          <option>Design/UX</option>
+          <option>Development</option>
+          <option>Marketing</option>
+          <option>Supplies</option>
+          <option>Legal</option>
+          <option>Admin</option>
+        </select>
       </div>
       <div class="form-group">
         <input type="number" name="amount" value="0" ng-model="eventsCtrl.newEvent.amount" placeholder="Amount" class="form-control">
@@ -20,7 +27,7 @@
         <img class="img-responsive"  id="preview" src="" />
       <input type="hidden" id="invoice" name="invoice" ng-model="eventsCtrl.newEvent.invoice" />
       <div class="text-center">
-      <button type="submit" class="btn btn-info btn-block">Add Event</button>
+        <button type="submit" class="btn btn-primary btn-block">Add Event</button>
       </div>
     </form>
   </div>

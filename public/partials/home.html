@@ -1,25 +1,33 @@
 <div class="container">
-  <div class="col-md-4 homepage"> 
-    <div>
-      <event-form></event-form>
-    </div>
-  </div>
-  <div class="col-md-8 homepage">
-    <div class="list-group-item">
-      <h3>Total expenses for {{eventsCtrl.myDate | date:"MMM y"}}: {{eventsCtrl.monthlyTotal(eventsCtrl.events) | currency}}</h3>
-    </div>
-    <div ng-repeat="event in eventsCtrl.events">
-      <div ng-if="event.date.getMonth() == eventsCtrl.myDate.getMonth()" class="list-group-item">
-        <h3 class="list-group-item-heading">{{ event.date | date:"MM/dd/yyyy" }} {{ event.category }}</h3>
-        <p class="list-group-item-text">{{ event.amount | currency}} 
-          <span ng-if="!event.paid">
-            NEEDS TO BE PAID
-          </span>
-          <span ng-if="event.invoice">
-            <img src="{{event.invoice}}">
-          </span> 
-        </p>
+  <div ng-controller="EventsController as eventsCtrl">
+    <div class="col-md-4 homepage"> 
+      <div>
+        <event-form></event-form>
       </div>
     </div>
+    <div class="col-md-8 homepage">
+      <div class="list-group-item">
+        <h3>Total expenses for {{eventsCtrl.myDate | date:"MMM y"}}: {{eventsCtrl.monthlyTotal(eventsCtrl.events) | currency}}</h3>
+      </div>
+      <div ng-repeat="event in eventsCtrl.events">
+        <div ng-if="event.date.getMonth() == eventsCtrl.myDate.getMonth()" class="list-group-item">
+          <h3 class="list-group-item-heading">{{ event.date | date:"MM/dd/yyyy" }} {{ event.category }}</h3>
+          <p class="list-group-item-text">{{ event.amount | currency}} {{event._id}}
+            <span ng-if="!event.paid">
+              NEEDS TO BE PAID
+            </span>
+            <button ng-click="eventsCtrl.removeEvent(event._id)">X</button>
+            <span ng-if="event.invoice">
+              <img src="{{event.invoice}}">
+            </span> 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-controller="PieController as pieCtrl">
+    <canvas id="doughnut" class="chart chart-doughnut"
+      chart-data="pieCtrl.data" chart-labels="pieCtrl.labels" colours="pieCtrl.chartParams.colours">
+    </canvas>
   </div>
 </div>
