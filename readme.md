@@ -1,6 +1,6 @@
 # dojoBooks
 
-Our project aims to connect  students to tech mentors.
+This project is a tool for compaines to track epenses/burn rate.
 
 If you fork this repo, you must run `npm install` in order for the app to function properly.
 
