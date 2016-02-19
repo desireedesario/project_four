@@ -56,6 +56,51 @@ label {
 
 canvas {
   z-index: 10;
+  margin-top: 20px;
+}
+
+.burnRate {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.homeAll {
+  text-align: center;
+  font-size: 22px;
+}
+
+.homeAllDiv{
+  padding-bottom: 0px;
+  margin-top: 20px;
+}
+
+.homeTotal {
+  font-size: 20px;
+  text-align: center;
+}
+
+.homeList {
+  margin-top: 0px;
+}
+
+.redout {
+  /*border-color: red;
+  border-style: solid;
+  border-width: 15px;*/
+  background-color: #ff9696;
+  font-style: bold;
+}
+
+.homeTrash {
+  float: right;
+  /*border-color: black;*/
+  background-color: #00D39E;
+}
+
+.homeTrash:hover {
+  float: right;
+  /*border-color: black;*/
+  background-color: red;
 }
 
 /* Index HTML */
@@ -63,7 +108,7 @@ canvas {
   width: 100%;
   padding-left: 0px;
   padding-right: 0px;
-  background-color: #F3F4F5;
+  background-color: #D3D8DC;
 }
 
 body {
@@ -73,4 +118,23 @@ body {
 
 header {
 
+}
+
+/* Create form */
+.panel-title {
+  text-align: center;
+}
+
+.formTitle {
+  font-size: 16px;
+}
+
+.img-responsive {
+  max-height: 50px;
+}
+
+/* Detail Page */
+.btn-danger {
+  background-color:black;
+  border-color: black;
 }
