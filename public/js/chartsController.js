@@ -59,7 +59,7 @@ function PieController(eventsFactory, $rootScope) {
   }
 
   vm.chartParams = {
-    colours: ["#62686D", "#00D39E", "#02ff13", "#232527", "#14cfd9", "#ff4949"]
+    colours: ["#14cfd9", "#00D39E", "#02ff13", "#232527", "#ff4949", "#62686D"]
   }
 
   $rootScope.$on('addEvent', function() {
