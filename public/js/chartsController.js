@@ -11,6 +11,7 @@ function PieController(eventsFactory, $rootScope) {
   vm.events = []
   vm.labels = ["Design/UX", "Development", "Marketing", "Supplies", "Legal", "Admin"]
   vm.data = []
+  vm.type = 'Doughnut'
   vm.myDate = new Date()
 
   vm.getEvents = function() {
@@ -56,6 +57,10 @@ function PieController(eventsFactory, $rootScope) {
     newArr.push(des, dev, mar, sup, leg, adm)
     console.log(newArr)
     return newArr
+  }
+
+  vm.toggle = function() {
+    vm.type = vm.type === 'Doughnut' ? 'PolarArea' : 'Doughnut';
   }
 
   vm.chartParams = {

@@ -24,12 +24,16 @@
       </div>
       
       <div class="form-group">
-        <input type="checkbox" name="paid" ng-model="eventsCtrl.newEvent.paid"><span class="formTitle"> This has been paid.</span>
+        <input type="radio" name="paid" ng-model="eventsCtrl.newEvent.paid" value="true"><span class="formTitle"> This has been paid.</span>
+      </div>
+
+      <div class="form-group">
+        <input type="radio" name="paid" ng-model="eventsCtrl.newEvent.paid" value="false"><span class="formTitle"> This has not been paid.</span>
       </div>
       
       <p class="formTitle" id="status">Upload Receipt/Invoice Image</p>
       <img class="img-responsive"  id="preview" src="/images/file.png"/>
-      <input type="file" id="file_input" ng-model="eventsCtrl.newEvent.invoice" ng-click="eventsCtrl.sthree()"/>  
+      <input type="file" id="file_input" ng-model="eventsCtrl.newEvent.invoice" ng-click="eventsCtrl.sthree()"/> 
       <input type="hidden" id="invoice" name="invoice" ng-model="eventsCtrl.newEvent.invoice" />
       <hr>
       <div class="text-center">

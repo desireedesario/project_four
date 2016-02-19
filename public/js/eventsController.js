@@ -31,6 +31,7 @@ function EventsController (eventsFactory, $window, $rootScope){
         $rootScope.$broadcast('addEvent')
         console.log('ADD EVENT')
         vm.newEvent = {}
+        document.getElementById("preview").src = "/images/file.png"
       })
   }
 
@@ -51,6 +52,15 @@ function EventsController (eventsFactory, $window, $rootScope){
       }
     }
     return total
+  }
+
+  vm.pay = function(eventId) {
+    var data = {paid:true}
+    vm.api.updateEvent(eventId,data).success(function(response){
+      console.log(response)
+      vm.event = response
+      vm.getEvents()
+    })
   }
 
   vm.sthree = function(){
