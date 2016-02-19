@@ -28,8 +28,8 @@ If you fork this repo, you must run `npm install` in order for the app to functi
 
 #### Screen Shots
 
-![](public/images/screenchot1.png)
-![](./public/images/screenshot2.png)
+![](/public/images/screenchot1.png)
+![](/public/images/screenshot2.png)
 
 -
 
