@@ -9,6 +9,7 @@ function eventsFactory($http){
   var events = {}
 
   events.list = function(){
+    console.log("event list")
     return $http.get(eventsUrl)
   }
 
