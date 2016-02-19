@@ -4,7 +4,7 @@ var
 
 var eventSchema = new Schema({
   date: Date,
-  category: String,
+  category: { type: String, required: true},
   amount: Number,
   paid: Boolean,
   invoice: String
