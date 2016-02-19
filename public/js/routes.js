@@ -12,8 +12,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/home',
-      templateUrl: 'partials/home.html',
-      controller: 'EventsController as eventsCtrl'
+      templateUrl: 'partials/home.html'
     })
     .state('login', {
       url: '/login',
