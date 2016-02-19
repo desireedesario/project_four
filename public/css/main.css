@@ -43,9 +43,13 @@ label {
   border-color: #4cd57c;
 }
 
-/* Home page */
+/* Home state */
 .homepage {
   margin-top: 20px;
+}
+
+canvas {
+  z-index: 10;
 }
 
 /* Index HTML */
@@ -53,7 +57,7 @@ label {
   width: 100%;
   padding-left: 0px;
   padding-right: 0px;
-  background-color: black;
+  background-color: #F3F4F5;
 }
 
 body {
