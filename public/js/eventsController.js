@@ -2,29 +2,45 @@ angular
   .module('dojoBooks')
   .controller('EventsController', EventsController)
 
-EventsController.$inject = ['eventsFactory', '$window']
+EventsController.$inject = ['eventsFactory', '$window', '$rootScope']
 
-function EventsController (eventsFactory, $window){
+function EventsController (eventsFactory, $window, $rootScope){
   var vm = this
   vm.api = eventsFactory
   vm.myDate = new Date()
   vm.events = []
   vm.newEvent = {}
-  vm.api.list()
-    .success(function(res){
-      for(var i = 0; i < res.length; i++){
-        res[i].date = new Date(res[i].date)
-      }
-      vm.events = res
-    })
+  
+  vm.getEvents = function() {
+    vm.api.list()
+      .success(function(res){
+        for(var i = 0; i < res.length; i++){
+          res[i].date = new Date(res[i].date)
+        }
+        vm.events = res
+      })
+  }
+  vm.getEvents()
+
   vm.addEvent = function(date, category, amount, paid, invoice){
     var data = {date:date, category:category, amount:amount, paid:paid, invoice:invoice}
     vm.api.addEvent(data)
       .then(function success(res){
         res.data.event.date = new Date(res.data.event.date)
         vm.events.push(res.data.event)
+        $rootScope.$broadcast('addEvent')
+        console.log('ADD EVENT')
         vm.newEvent = {}
       })
+  }
+
+  vm.removeEvent = function(eventId){
+    vm.api.removeEvent(eventId).success(function(response){
+      console.log(response)
+      $rootScope.$broadcast('deleteEvent')
+      vm.getEvents()
+      // $location.path('/events')
+    })
   }
 
   vm.monthlyTotal = function(arr){
