@@ -28,8 +28,8 @@ If you fork this repo, you must run `npm install` in order for the app to functi
 
 #### Screen Shots
 
-![ Student.mentor() ERD ](images/screenchot1.png)
-![ Student.mentor() ERD ](readme/screenshot2.png)
+![ Student.mentor() ERD ](/images/screenchot1.png)
+![ Student.mentor() ERD ](/images/screenshot2.png)
 
 -
 
@@ -49,7 +49,7 @@ If you fork this repo, you must run `npm install` in order for the app to functi
 
 #### ERD
 
-![ ERD ](images/erd.png)
+![ ERD ](/images/erd.png)
 
 -
 
