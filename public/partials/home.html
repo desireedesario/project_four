@@ -1,33 +1,33 @@
 <div class="container">
-  <div ng-controller="EventsController as eventsCtrl">
-    <div class="col-md-4 homepage"> 
+  <div class="col-md-8 homepage">
+    <div class="list-group-item burnRate">
+        <p class="homeTotal">Burn rate for {{eventsCtrl.myDate | date:"MMM y"}}: <span style="font-size: 28px;">{{eventsCtrl.monthlyTotal(eventsCtrl.events) | currency}}</span></p>
+    </div>
+    <div class="col-md-10 col-md-offset-1" ng-controller="PieController as pieCtrl">
+      <canvas id="doughnut" class="chart chart-doughnut"
+        chart-data="pieCtrl.data" chart-labels="pieCtrl.labels" chart-colours="pieCtrl.chartParams.colours" chart-legend="true">
+      </canvas>
+    </div>
+  </div>
+    <div class="col-md-3 col-md-offset-1 homepage"> 
       <div>
         <event-form></event-form>
       </div>
     </div>
-    <div class="col-md-8 homepage">
-      <div class="list-group-item">
-        <h3>Total expenses for {{eventsCtrl.myDate | date:"MMM y"}}: {{eventsCtrl.monthlyTotal(eventsCtrl.events) | currency}}</h3>
+    <div class="col-md-12 homepage homeList">
+      <div class="list-group-item homeAllDiv">
+        <p class="homeAll">All expenses for {{eventsCtrl.myDate | date:"MMM y"}}:</p>
       </div>
-      <div ng-repeat="event in eventsCtrl.events">
-        <div ng-if="event.date.getMonth() == eventsCtrl.myDate.getMonth()" class="list-group-item">
-          <h3 class="list-group-item-heading">{{ event.date | date:"MM/dd/yyyy" }} {{ event.category }}</h3>
-          <p class="list-group-item-text">{{ event.amount | currency}} {{event._id}}
-            <span ng-if="!event.paid">
-              NEEDS TO BE PAID
-            </span>
-            <button ng-click="eventsCtrl.removeEvent(event._id)">X</button>
-            <span ng-if="event.invoice">
-              <img src="{{event.invoice}}">
-            </span> 
-          </p>
-        </div>
+      <div ng-repeat="event in eventsCtrl.events | orderBy:'date'">
+        <a ng-if="event.date.getMonth() == eventsCtrl.myDate.getMonth()" class="col-md-3 list-group-item" ng-class="{redout: !event.paid}" href="#/events/{{ event._id }}">
+          <h4 class="list-group-item-heading">{{ event.date | date:"MM/dd/yyyy" }}</h4>
+          <h4 class="list-group-item-">
+            {{ event.category}} - {{ event.amount | currency }}
+            <span ng-if="!event.paid"></span>
+            <button class="glyphicon glyphicon-trash homeTrash" ng-click="eventsCtrl.removeEvent(event._id)"></button> 
+          </h4>
+        </a>
       </div>
     </div>
-  </div>
-  <div ng-controller="PieController as pieCtrl">
-    <canvas id="doughnut" class="chart chart-doughnut"
-      chart-data="pieCtrl.data" chart-labels="pieCtrl.labels" colours="pieCtrl.chartParams.colours">
-    </canvas>
-  </div>
+ 
 </div>

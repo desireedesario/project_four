@@ -1,4 +1,4 @@
-<div class="container"> 
+<div class="container homepage"> 
   <div class="panel panel-default" ng-hide="eventDetailsCtrl.editing">
     <div class="panel-heading">
       <h3 class="panel-title">Single Event:</h3>
@@ -6,13 +6,13 @@
     <div class="panel-body">
       <h1>{{ eventDetailsCtrl.event.date | date:"MM/dd/yyyy" }} {{ eventDetailsCtrl.event.category }}</h1>
       <h3><strong>Amount</strong>: {{ eventDetailsCtrl.event.amount | currency}}</h3>
-      <h3><strong>ID</strong>: {{ eventDetailsCtrl.event._id }}</h3>
-    </div>
+    
     <div class="text-center">
-    <button class="btn btn-info btn-block" ng-click="eventDetailsCtrl.editing=!eventDetailsCtrl.editing">Edit Event</button>
+    <button class="btn btn-primary col-md-4 col-md-offset-4" ng-click="eventDetailsCtrl.editing=!eventDetailsCtrl.editing">Edit Event</button>
     <!-- DELETE BUTTON -->
-    <button class="btn btn-danger btn-block" ng-click="eventDetailsCtrl.removeEvent(eventDetailsCtrl.event._id)">Delete Event</button>
+    <button class="btn btn-danger col-md-4 col-md-offset-4" ng-click="eventDetailsCtrl.removeEvent(eventDetailsCtrl.event._id)">Delete Event</button>
     <!--  -->
+    </div>
     </div>
   </div>
 
@@ -20,30 +20,36 @@
     <div class="panel-heading"><h3 class="panel-title">Edit Event</h3></div>
     <div class="panel-body">
       <form class="" ng-submit="eventDetailsCtrl.updateEvent(eventDetailsCtrl.event._id, eventDetailsCtrl.event.date, eventDetailsCtrl.event.category, eventDetailsCtrl.event.amount)">
+
         <div class="form-group">    
           <input type="date" name="date" ng-model="eventDetailsCtrl.event.date" placeholder="Date" class="form-control">
         </div>
+
         <div class="form-group">
           <select type="text" name="category" ng-model="eventDetailsCtrl.event.category" class="form-control">
-            <option>Design/UX</option>
-            <option>Development</option>
-            <option>Marketing</option>
-            <option>Supplies</option>
-            <option>Legal</option>
-            <option>Admin</option>
+          <option value="Design/UX">Design/UX</option>
+          <option value="Development">Development</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Supplies">Supplies</option>
+          <option value="Legal">Legal</option>
+          <option value="Admin">Admin</option>
           </select>
         </div>
+
         <div class="form-group">
           <input type="number" name="amount" ng-model="eventDetailsCtrl.event.amount" placeholder="Amount" class="form-control">
         </div>
+
         <div class="form-group">
-          <input type="checkbox" name="paid" ng-model="eventDetailsCtrl.event.paid" placeholder="Paid?" class="form-control">
+          <input type="checkbox" name="paid" ng-model="eventDetailsCtrl.event.paid"><span class="formTitle"> This has been paid.</span>
         </div>
-        <input type="file" id="file_input" ng-model="eventDetailsCtrl.event.invoice" ng-click="eventsCtrl.sthree()"/>
-          <p id="status">Upload Receipt/Invoice Image</p>
-          <img class="img-responsive"  id="preview" src="" />
+
+        <p class="formTitle" id="status">Upload Receipt/Invoice Image</p>
+        <img class="img-responsive"  id="preview" src="/images/file.png" />
+        <input type="file" id="file_input" ng-model="eventDetailsCtrl.event.invoice" ng-click="eventsCtrl.sthree()"/>  
         <input type="hidden" id="invoice" name="invoice" ng-model="eventDetailsCtrl.event.invoice"/>
-        <div class="text-center">
+
+        <div class="col-md-4 col-md-offset-4">
           <button type="submit" class="btn btn-primary btn-block">Update Event</button>
         </div>
       </form>

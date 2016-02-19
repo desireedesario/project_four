@@ -3,29 +3,35 @@
   <div class="panel-heading"><h3 class="panel-title">New Entry</h3></div>
   <div class="panel-body">
     <form id="new-event-form" ng-submit="eventsCtrl.addEvent(eventsCtrl.newEvent.date,eventsCtrl.newEvent.category,eventsCtrl.newEvent.amount,eventsCtrl.newEvent.paid,eventsCtrl.newEvent.invoice)">
+      
       <div class="form-group">    
         <input type="date" name="date" ng-model="eventsCtrl.newEvent.date" placeholder="Date" class="form-control">
       </div>
+      
       <div class="form-group">
         <select type="text" name="category" ng-model="eventsCtrl.newEvent.category" class="form-control">
-          <option>Design/UX</option>
-          <option>Development</option>
-          <option>Marketing</option>
-          <option>Supplies</option>
-          <option>Legal</option>
-          <option>Admin</option>
+          <option value="Design/UX">Design/UX</option>
+          <option value="Development">Development</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Supplies">Supplies</option>
+          <option value="Legal">Legal</option>
+          <option value="Admin">Admin</option>
         </select>
       </div>
+      
       <div class="form-group">
         <input type="number" name="amount" value="0" ng-model="eventsCtrl.newEvent.amount" placeholder="Amount" class="form-control">
       </div>
+      
       <div class="form-group">
-        <input type="checkbox" name="paid" ng-model="eventsCtrl.newEvent.paid" placeholder="Paid?" class="form-control">
+        <input type="checkbox" name="paid" ng-model="eventsCtrl.newEvent.paid"><span class="formTitle"> This has been paid.</span>
       </div>
-      <input type="file" id="file_input" ng-model="eventsCtrl.newEvent.invoice" ng-click="eventsCtrl.sthree()"/>
-        <p id="status">Upload Receipt/Invoice Image</p>
-        <img class="img-responsive"  id="preview" src="" />
+      
+      <p class="formTitle" id="status">Upload Receipt/Invoice Image</p>
+      <img class="img-responsive"  id="preview" src="/images/file.png"/>
+      <input type="file" id="file_input" ng-model="eventsCtrl.newEvent.invoice" ng-click="eventsCtrl.sthree()"/>  
       <input type="hidden" id="invoice" name="invoice" ng-model="eventsCtrl.newEvent.invoice" />
+      <hr>
       <div class="text-center">
         <button type="submit" class="btn btn-primary btn-block">Add Event</button>
       </div>
