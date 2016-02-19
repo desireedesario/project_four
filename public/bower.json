@@ -1,0 +1,22 @@
+{
+  "name": "public",
+  "homepage": "https://github.com/teeej/project_four",
+  "authors": [
+    "TJ Palazzari <tjpalazzari@yahoo.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Chart.js": "~1.0.2",
+    "angular-chart.js": "~0.8.8"
+  }
+}
