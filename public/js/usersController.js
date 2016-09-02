@@ -31,15 +31,15 @@ function UsersController($state, authFactory, $rootScope, $window) {
     vm.loggedIn = authFactory.isLoggedIn();
   }
 
-  getUser()
-  
   function getUser(){
-    authFactory.getUser()
-    .then(function(response){
-      console.log(response)
-      vm.user = response.data
-    })
-  }
+     authFactory.getUser()
+     .then(function(response){
+       console.log(response)
+       vm.user = response.data
+     })
+    }
+
+  getUser()
 
   function signup(){
     authFactory.signup(vm.user.username, vm.user.password, vm.user.mark)

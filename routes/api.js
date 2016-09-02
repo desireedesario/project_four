@@ -4,7 +4,7 @@ var
   mongoose         = require('mongoose'),
   eventsController = require('../controllers/eventsController.js'),
   usersController  = require('../controllers/usersController.js'),
-  User = require('../models/User.js')
+  User             = require('../models/User.js')
   
 // Non-Authenticated routes ===========
 
